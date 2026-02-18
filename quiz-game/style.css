@@ -1,5 +1,4 @@
 /* Basic Reset */
-
 * {
   margin: 0;
   padding: 0;
@@ -39,10 +38,12 @@ body {
 
 /* START SCREEN */
 
+
 #start-screen h1 {
   color: #e86a33;
   margin-bottom: 20px;
   font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #start-screen p {
@@ -51,8 +52,208 @@ body {
   font-size: 1.1rem;
 }
 
+
+#start-btn {
+  background-color: #e86a33;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#start-btn:hover {
+  background-color: #d45b28;
+  transform: scale(1.05);
+}
+
+/* WHEEL CONTAINER */
+.wheel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+}
+
+#wheel-screen {
+  text-align: center;
+  padding: 20px;
+  background-color: #faf7f2;  
+  min-height: 500px;
+}
+
+#wheel-screen h2 {
+  color: #e86a33;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* WHEEL CONTAINER */
+.wheel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+}
+
+/* WHEEL - Make sure it's visible */
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.15, 1);
+  border: 4px solid white;
+  background-color: #ddd; /* Temporary background to see if wheel appears */
+  display: block; /* Make sure it's displayed */
+  visibility: visible; /* Make sure it's visible */
+  opacity: 1; /* Make sure it's not transparent */
+}
+
+/* WHEEL SECTIONS - Make sure they're visible */
+.wheel-section {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: bottom right;
+  left: 0;
+  top: 0;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  visibility: visible; 
+  opacity: 1; /* Make sure they're not transparent */
+  z-index: 5; /* Make sure they're above background */
+}
+
+/* 7 equal sections */
+.wheel-section:nth-child(1) { 
+  transform: rotate(0deg) skewY(38.57deg); 
+  background-color: #FF6B6B; /* Red */
+}
+.wheel-section:nth-child(2) { 
+  transform: rotate(51.43deg) skewY(38.57deg); 
+  background-color: #FF8E53; /* Orange */
+}
+.wheel-section:nth-child(3) { 
+  transform: rotate(102.86deg) skewY(38.57deg); 
+  background-color: #FFD93D; /* Yellow */
+}
+.wheel-section:nth-child(4) { 
+  transform: rotate(154.29deg) skewY(38.57deg); 
+  background-color: #6BCB77; /* Green */
+}
+.wheel-section:nth-child(5) { 
+  transform: rotate(205.71deg) skewY(38.57deg); 
+  background-color: #4D96FF; /* Blue */
+}
+.wheel-section:nth-child(6) { 
+  transform: rotate(257.14deg) skewY(38.57deg); 
+  background-color: #9D65C9; /* Purple */
+}
+.wheel-section:nth-child(7) { 
+  transform: rotate(308.57deg) skewY(38.57deg); 
+  background-color: #FF6B9D; /* Pink */
+}
+
+/* Icons inside sections */
+.wheel-section span {
+  transform: rotate(45deg) translate(30px, -25px);
+  text-align: center;
+  display: block;
+  font-size: 2rem;
+  z-index: 6;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* CENTER BUTTON */
+.center-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: auto;
+}
+
+#spin-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e86a33;
+  border: none;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(232, 106, 51, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 3px solid white;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+
+#spin-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(232, 106, 51, 0.5);
+}
+
+#spin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+/* Category display  */
+.category-display {
+  margin-top: 30px;
+  padding: 25px 25px;
+  background-color: white;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  color: #333;  
+  border: 2px solid #e86a33;
+  min-height: 80px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* QUIZ SCREEN */
+#quiz-screen {
+  background: white;
+}
+
 .quiz-header {
   margin-bottom: 1rem;
+}
+
+.category-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #e88a33 0%, #e84a33 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 #question-text {
@@ -85,6 +286,7 @@ body {
   cursor: pointer;
   text-align: left;
   transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .answer-btn:hover {
@@ -104,6 +306,11 @@ body {
   color: #dc3545;
 }
 
+.answer-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
 .progress-bar {
   height: 10px;
   background-color: #f8f0e5;
@@ -114,56 +321,65 @@ body {
 
 .progress {
   height: 100%;
-  background-color: #e86a33;
+  background: linear-gradient(135deg, #e89a33 0%, #e83a33 100%);
   width: 0%;
   transition: width 0.3s ease;
 }
 
-/* RESULT SCREEN */
+/* RESULT SCREEN  */
+#result-screen {
+ 
+  color: white;
+}
 
 #result-screen h1 {
   color: #e86a33;
   margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .result-info {
-  background-color: #f8f0e5;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .result-info p {
   font-size: 1.2rem;
-  color: #333;
   margin-bottom: 1rem;
+  color: #666;
 }
 
 #result-message {
   font-size: 1.5rem;
   font-weight: 600;
   color: #e86a33;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-button {
+#restart-btn {
   background-color: #e86a33;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 15px 30px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s;
+  border: 2px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
-  background-color: #d45b28;
+#restart-btn:hover {
+  transform: scale(1.05);
 }
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 500px) {
-  /* when we hit 500px and below, implement the styles below */
-
   .screen {
     padding: 1rem;
   }
@@ -172,12 +388,38 @@ button:hover {
     font-size: 2rem;
   }
 
+  #wheel-screen h2 {
+    font-size: 1.5rem;
+  }
+
+  .wheel-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .wheel-section span {
+    font-size: 1.5rem;
+    transform: rotate(45deg) translate(10px, -20px);
+  }
+
+  #spin-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .category-display {
+    width: 90%;
+    font-size: 1rem;
+  }
+
   #question-text {
     font-size: 1.3rem;
   }
 
   .answer-btn {
     padding: 12px;
+    font-size: 0.9rem;
   }
 
   button {
